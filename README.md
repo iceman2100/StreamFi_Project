@@ -225,6 +225,9 @@ Issue	Solution
 ❌ MetaMask transaction failed	Import Ganache account private key into MetaMask
 ❌ Balance not updating	Verify contract address & login before claiming
 
+<img width="1887" height="1031" alt="image" src="https://github.com/user-attachments/assets/573d060c-6e08-4074-8e09-46f1c05c60d5" />
+
+
 🚀 Future Enhancements
  Support multiple tokens (USDT, USDC, DAI)
 
