@@ -1,6 +1,7 @@
 # 🚀 StreamFi — Real-Time Crypto Payroll Platform  
 
-<img width="1887" height="1031" alt="image" src="https://github.com/user-attachments/assets/cbb3952a-aecf-4ec7-b57a-f5ef9282b893" />
+<img width="1883" height="958" alt="image" src="https://github.com/user-attachments/assets/6eb5c65e-22ea-4738-bf80-3c9d50b86526" />
+
 
 
 
@@ -219,6 +220,9 @@ function login() public;
 function logout() public;
 function claim() public;
 function getBalance(address employee) public view returns (uint256);
+
+<img width="1883" height="958" alt="image" src="https://github.com/user-attachments/assets/01744b0c-874d-478d-b0b2-1fcc78368e21" />
+
 🐛 Troubleshooting
 Issue	Solution
 ❌ Cannot connect to Ganache	Ensure Ganache is running & check RPC at 127.0.0.1:7545
@@ -226,7 +230,7 @@ Issue	Solution
 ❌ MetaMask transaction failed	Import Ganache account private key into MetaMask
 ❌ Balance not updating	Verify contract address & login before claiming
 
-<img width="1887" height="1031" alt="image" src="https://github.com/user-attachments/assets/573d060c-6e08-4074-8e09-46f1c05c60d5" />
+
 
 
 🚀 Future Enhancements
