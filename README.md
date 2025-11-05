@@ -95,7 +95,9 @@ StreamFi enables **money streaming**, allowing salaries to move **second-by-seco
 
 ## 📁 Project Structure  
 
-<img width="647" height="772" alt="image" src="https://github.com/user-attachments/assets/bc8673f6-111d-473c-907a-bda15892a68f" />
+<img width="647" height="772" alt="image" src="https://github.com/user-attachments/assets/5c640488-d3b1-4f31-beb0-e9e3b9928a5b" />
+
+
 
 
 ---
