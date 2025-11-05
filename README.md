@@ -3,6 +3,8 @@
 <img width="1883" height="958" alt="image" src="https://github.com/user-attachments/assets/6eb5c65e-22ea-4738-bf80-3c9d50b86526" />
 
 
+<img width="1887" height="1031" alt="image" src="https://github.com/user-attachments/assets/281bc398-4a8e-41cd-afa1-59ffd380edc1" />
+
 
 
 > **Automate salary streaming with blockchain. Pay employees by the second, not by the month.**
@@ -97,10 +99,6 @@ StreamFi enables **money streaming**, allowing salaries to move **second-by-seco
 ---
 
 ## 📁 Project Structure  
-
-<img width="647" height="772" alt="image" src="https://github.com/user-attachments/assets/5c640488-d3b1-4f31-beb0-e9e3b9928a5b" />
-
-
 
 
 ---
