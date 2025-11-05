@@ -1,6 +1,7 @@
 # 🚀 StreamFi — Real-Time Crypto Payroll Platform  
 
-![StreamFi Banner](Frontend/generated-image.png)
+![StreamFi Banner](<img width="1883" height="958" alt="image" src="https://github.com/user-attachments/assets/212bf948-1ab4-4552-84e0-3872bfb9dbaf" />
+)
 
 > **Automate salary streaming with blockchain. Pay employees by the second, not by the month.**
 
