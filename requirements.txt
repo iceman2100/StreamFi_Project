@@ -1,0 +1,22 @@
+# StreamFi Project Requirements
+# This file documents environment dependencies required to build and deploy the DApp.
+
+# --- Core Environment ---
+nodejs>=16.0.0
+npm>=8.0.0
+
+# --- Blockchain Development ---
+truffle>=5.11.0
+ganache-cli>=6.12.2
+
+# --- Ethereum Libraries ---
+web3>=1.10.0
+ethers>=6.10.0
+
+# --- Frontend Development ---
+live-server>=1.2.2
+
+# --- Optional Tools ---
+# python3 (for data simulations, if needed)
+# pytest (for smart contract test automation)
+# jupyter (for blockchain analysis notebooks)
