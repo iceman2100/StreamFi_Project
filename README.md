@@ -95,35 +95,8 @@ StreamFi enables **money streaming**, allowing salaries to move **second-by-seco
 
 ## 📁 Project Structure  
 
-StreamFi_Project/
-│
-├── build/
-│ └── contracts/
-│ └── StreamFi.json # Compiled contract ABI
-│
-├── contracts/
-│ └── StreamFi.sol # Smart contract (Solidity)
-│
-├── Frontend/
-│ ├── index.html # Main UI
-│ ├── cylinder3.png # Hero image
-│ └── generated-image.png # Additional visuals
-│
-├── migrations/
-│ └── 2_deploy_contracts.js # Deployment script
-│
-├── test/
-│ └── (test files) # Unit tests for smart contracts
-│
-├── simulate.js # Token streaming simulator
-├── truffle-config.js # Truffle configuration
-├── package.json # Node.js dependencies
-├── .gitignore # Git ignore rules
-├── requirements.txt # Environment dependencies
-└── README.md # Project documentation
+<img width="647" height="772" alt="image" src="https://github.com/user-attachments/assets/bc8673f6-111d-473c-907a-bda15892a68f" />
 
-yaml
-Copy code
 
 ---
 
