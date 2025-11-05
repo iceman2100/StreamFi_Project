@@ -1,7 +1,3 @@
-
----
-
-```markdown
 # 🚀 StreamFi — Real-Time Crypto Payroll Platform  
 
 ![StreamFi Banner](Frontend/generated-image.png)
@@ -99,10 +95,35 @@ StreamFi enables **money streaming**, allowing salaries to move **second-by-seco
 
 ## 📁 Project Structure  
 
+StreamFi_Project/
+│
+├── build/
+│ └── contracts/
+│ └── StreamFi.json # Compiled contract ABI
+│
+├── contracts/
+│ └── StreamFi.sol # Smart contract (Solidity)
+│
+├── Frontend/
+│ ├── index.html # Main UI
+│ ├── cylinder3.png # Hero image
+│ └── generated-image.png # Additional visuals
+│
+├── migrations/
+│ └── 2_deploy_contracts.js # Deployment script
+│
+├── test/
+│ └── (test files) # Unit tests for smart contracts
+│
+├── simulate.js # Token streaming simulator
+├── truffle-config.js # Truffle configuration
+├── package.json # Node.js dependencies
+├── .gitignore # Git ignore rules
+├── requirements.txt # Environment dependencies
+└── README.md # Project documentation
 
-
-<pre> ``` StreamFi_Project/ │ ├── build/ │ └── contracts/ │ └── StreamFi.json # Compiled contract ABI │ ├── contracts/ │ └── StreamFi.sol # Smart contract (Solidity) │ ├── Frontend/ │ ├── index.html # Main UI │ ├── cylinder3.png # Hero image │ └── generated-image.png # Additional visuals │ ├── migrations/ │ └── 2_deploy_contracts.js # Deployment script │ ├── test/ │ └── (test files) # Unit tests for smart contracts │ ├── simulate.js # Token streaming simulator ├── truffle-config.js # Truffle configuration ├── package.json # Node.js dependencies ├── .gitignore # Git ignore rules ├── requirements.txt # Environment dependencies └── README.md # Project documentation ``` </pre>
-
+yaml
+Copy code
 
 ---
 
@@ -125,26 +146,22 @@ Ensure you have:
 ```bash
 git clone https://github.com/iceman2100/StreamFi_Project.git
 cd StreamFi_Project
-````
-
-#### 2️⃣ Install Dependencies
-
-```bash
+2️⃣ Install Dependencies
+bash
+Copy code
 npm install
-```
-
 This installs Truffle, Web3.js, Ethers.js, and the Solidity compiler.
 
-#### 3️⃣ Start Ganache
+3️⃣ Start Ganache
+Open Ganache → Quickstart
 
-* Open **Ganache → Quickstart**
-* Copy RPC URL: `http://127.0.0.1:7545`
+Copy RPC URL: http://127.0.0.1:7545
 
-#### 4️⃣ Configure Truffle
+4️⃣ Configure Truffle
+Check truffle-config.js:
 
-Check `truffle-config.js`:
-
-```javascript
+javascript
+Copy code
 module.exports = {
   networks: {
     development: {
@@ -157,52 +174,37 @@ module.exports = {
     solc: { version: "0.8.0" }
   }
 };
-```
-
-#### 5️⃣ Compile Smart Contracts
-
-```bash
+5️⃣ Compile Smart Contracts
+bash
+Copy code
 truffle compile
-```
+✅ Generates StreamFi.json ABI file.
 
-✅ Generates `StreamFi.json` ABI file.
-
-#### 6️⃣ Deploy Contracts
-
-```bash
+6️⃣ Deploy Contracts
+bash
+Copy code
 truffle migrate --reset
-```
-
 ✅ Deployed contract address will appear — save it!
 
-#### 7️⃣ Connect Frontend
+7️⃣ Connect Frontend
+In Frontend/index.html:
 
-In `Frontend/index.html`:
-
-```js
+js
+Copy code
 const contractAddress = "PASTE_YOUR_CONTRACT_ADDRESS_HERE";
-```
-
-#### 8️⃣ Run the App
-
-Option 1 (simple):
-Open `Frontend/index.html` in browser
-
+8️⃣ Run the App
+Option 1: open Frontend/index.html directly in your browser
 Option 2 (recommended):
 
-```bash
+bash
+Copy code
 npx live-server Frontend/
-```
+App runs at http://localhost:8080 🎉
 
-App runs at `http://localhost:8080` 🎉
-
----
-
-## 🎯 How It Works
-
-### 🧠 Architecture
-
-```
+🎯 How It Works
+🧠 Architecture
+scss
+Copy code
 ┌─────────────┐       ┌──────────────┐       ┌──────────────┐
 │  Employee   │◄──────┤   Smart      │◄──────┤   Employer   │
 │   Wallet    │       │  Contract    │       │   Wallet     │
@@ -212,10 +214,7 @@ App runs at `http://localhost:8080` 🎉
           │ Blockchain
           ▼
    Token Streaming Rate (e.g., 4 tokens/sec)
-```
-
-### 🪙 Payment Flow
-
+🪙 Payment Flow
 1️⃣ Employer sets the streaming rate (e.g., 4 tokens/sec)
 2️⃣ Employee logs in to start the stream
 3️⃣ Balance grows every second
@@ -223,78 +222,58 @@ App runs at `http://localhost:8080` 🎉
 5️⃣ Transaction confirmed via MetaMask
 6️⃣ Balance resets and stream continues
 
----
-
-## 🔐 Smart Contract Details
-
-### 📄 StreamFi.sol Overview
-
+🔐 Smart Contract Details
+📄 StreamFi.sol Overview
 Handles:
 
-* Employee streaming rates
-* Login/logout states
-* Balance computation
-* Claim processing
+Employee streaming rates
 
-### ⚙️ Core Functions
+Login/logout states
 
-```solidity
+Balance computation
+
+Claim processing
+
+⚙️ Core Functions
+solidity
+Copy code
 function setRate(address employee, uint256 rate) public onlyOwner;
 function login() public;
 function logout() public;
 function claim() public;
 function getBalance(address employee) public view returns (uint256);
-```
+🐛 Troubleshooting
+Issue	Solution
+❌ Cannot connect to Ganache	Ensure Ganache is running & check RPC at 127.0.0.1:7545
+❌ Contract not deployed	Run truffle migrate --reset
+❌ MetaMask transaction failed	Import Ganache account private key into MetaMask
+❌ Balance not updating	Verify contract address & login before claiming
 
----
+🚀 Future Enhancements
+ Support multiple tokens (USDT, USDC, DAI)
 
-## 🐛 Troubleshooting
+ Employer dashboard
 
-| Issue                           | Solution                                                  |
-| ------------------------------- | --------------------------------------------------------- |
-| ❌ `Cannot connect to Ganache`   | Ensure Ganache is running & check RPC at `127.0.0.1:7545` |
-| ❌ `Contract not deployed`       | Run `truffle migrate --reset`                             |
-| ❌ `MetaMask transaction failed` | Import Ganache account private key into MetaMask          |
-| ❌ `Balance not updating`        | Verify contract address & login before claiming           |
+ Mainnet & Layer-2 support (Polygon, BSC)
 
----
+ React Native mobile app
 
-## 🚀 Future Enhancements
+ Tax automation & bonuses
 
-* [ ] Support multiple tokens (USDT, USDC, DAI)
-* [ ] Employer dashboard
-* [ ] Mainnet & Layer-2 support (Polygon, BSC)
-* [ ] React Native mobile app
-* [ ] Tax automation & bonuses
-* [ ] Integration with **Superfluid** protocol [web:45]
+ Integration with Superfluid protocol [web:45]
 
----
+👥 Contributors
+👤 Anirudh — Project Lead
+🔗 GitHub
 
-## 👥 Contributors
+📜 License
+Licensed under the MIT License.
 
-👤 **Your Name** — *Anirudh*
-🔗 [GitHub](https://github.com/iceman2100)
+🙏 Acknowledgments
+Truffle Suite — Smart contract development [web:50][web:53]
 
----
+Superfluid — Real-time money streaming [web:45]
 
-## 📜 License
+OpenZeppelin — Secure Solidity libraries
 
-Licensed under the **MIT License**.
-
----
-
-## 🙏 Acknowledgments
-
-* [Truffle Suite](https://trufflesuite.com/) — Smart contract development [web:50][web:53]
-* [Superfluid](https://superfluid.org) — Real-time money streaming [web:45]
-* [OpenZeppelin](https://openzeppelin.com/) — Secure Solidity libraries
-
----
-
-> 💡 *Built with ❤️ for the decentralized future of payroll.*
-
----
-
-*For issues or feature requests, visit the [GitHub Issues](https://github.com/iceman2100/StreamFi_Project/issues) page.*
-
-
+💡 Built with ❤️ for the decentralized future of payroll.
