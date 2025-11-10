@@ -9,7 +9,7 @@ contract StreamFi {
     }
 
     mapping(address => Stream) public streams;
-    mapping(address => uint256) public claimedBalance; // ✅ Renamed for clarity
+    mapping(address => uint256) public balances;
 
     uint256 public constant MIN_CLAIM_INTERVAL = 5;
 
@@ -41,41 +41,26 @@ contract StreamFi {
         uint256 timePassed = block.timestamp - s.lastClaim;
         uint256 amount = timePassed * s.rate;
 
-        claimedBalance[msg.sender] += amount; // ✅ Add to claimed balance
-        s.lastClaim = block.timestamp; // ✅ Reset timer
+        balances[msg.sender] += amount;
+        s.lastClaim = block.timestamp;
 
         emit StreamClaimed(msg.sender, amount);
     }
 
-    // ✅ FIXED: Returns ONLY pending (unclaimed) tokens
     function getBalance(address _user) external view returns (uint256) {
         Stream storage s = streams[_user];
         
-        // Only return pending tokens (not yet claimed)
         if (s.active && s.rate > 0) {
             uint256 timePassed = block.timestamp - s.lastClaim;
             uint256 pendingTokens = timePassed * s.rate;
-            return pendingTokens; // ✅ Only show what can be claimed NOW
+            return balances[_user] + pendingTokens;
         }
         
-        return 0; // ✅ No pending tokens
+        return balances[_user];
     }
 
-    // ✅ NEW: Get total claimed tokens
+    // This function fixes the "getClaimedBalance is not a function" error
     function getClaimedBalance(address _user) external view returns (uint256) {
-        return claimedBalance[_user];
-    }
-
-    // ✅ NEW: Get total (claimed + pending)
-    function getTotalBalance(address _user) external view returns (uint256) {
-        Stream storage s = streams[_user];
-        uint256 pending = 0;
-        
-        if (s.active && s.rate > 0) {
-            uint256 timePassed = block.timestamp - s.lastClaim;
-            pending = timePassed * s.rate;
-        }
-        
-        return claimedBalance[_user] + pending;
+        return balances[_user];
     }
 }

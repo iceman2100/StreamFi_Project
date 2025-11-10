@@ -5,19 +5,18 @@
 }
 
 body {
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
-  background: #FFFBF2;;
-  color: #1A1A1A;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  background: #fffbf2;
+  color: #1a1a1a;
   overflow-x: hidden;
   border: 8px solid rgba(203, 181, 149, 0.4);
-  box-shadow: 
-    inset 0 0 0 16px rgba(203, 181, 149, 0.2),
+  box-shadow: inset 0 0 0 16px rgba(203, 181, 149, 0.2),
     inset 0 0 0 24px rgba(203, 181, 149, 0.1);
   min-height: 100vh;
 }
 
 .hero-section {
-  background: #FFFBF2;
+  background: #fffbf2;
   min-height: 100vh;
   display: flex;
   align-items: center;
@@ -34,7 +33,7 @@ body {
 }
 
 .hero-title {
-  font-family: 'Montserrat Alternates', sans-serif;
+  font-family: "Montserrat Alternates", sans-serif;
   font-size: 3.25rem;
   font-weight: 700;
   line-height: 1.15;
@@ -44,10 +43,10 @@ body {
 }
 
 .hero-description {
-  font-family: 'Great Vibes', cursive;
+  font-family: "Great Vibes", cursive;
   font-size: 1.8rem;
   line-height: 1.8;
-  color: #4A4A4A;
+  color: #4a4a4a;
   font-weight: 400;
   max-width: 540px;
 }
@@ -70,13 +69,18 @@ body {
 }
 
 @keyframes float {
-  0%, 100% { transform: translateY(0px); }
-  50% { transform: translateY(-15px); }
+  0%,
+  100% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-15px);
+  }
 }
 
 .btn-primary {
-  background: #F59E0B;
-  color: #FFFFFF;
+  background: #f59e0b;
+  color: #ffffff;
   padding: 1rem 2rem;
   border-radius: 8px;
   font-weight: 600;
@@ -88,37 +92,37 @@ body {
 }
 
 .btn-primary:hover {
-  background: #D97706;
+  background: #d97706;
   transform: translateY(-2px);
 }
 
 .btn-secondary {
   background: transparent;
-  color: #F59E0B;
+  color: #f59e0b;
   padding: 1rem 2rem;
   border-radius: 8px;
   font-weight: 600;
   text-decoration: none;
   display: inline-block;
-  border: 2px solid #F59E0B;
+  border: 2px solid #f59e0b;
   transition: all 0.3s ease;
   cursor: pointer;
 }
 
 .btn-secondary:hover {
-  background: #FEF3C7;
+  background: #fef3c7;
 }
 
 .beige-section {
-  background: #F5F1E8;
+  background: #f5f1e8;
   padding: 5rem 2rem;
 }
 
 .employee-card {
   display: block;
   position: relative;
-  background: #FFFFFF;
-  border: 2px solid #D3D3D3;
+  background: #ffffff;
+  border: 2px solid #d3d3d3;
   border-radius: 16px;
   padding: 0;
   transition: all 0.3s ease;
@@ -146,7 +150,7 @@ body {
   top: 0;
   left: 0;
   right: 0;
-  background: #CBB595;
+  background: #cbb595;
   height: 0;
   width: 100%;
   border-radius: 16px 16px 0 0;
@@ -163,12 +167,12 @@ body {
 .employee-card:hover {
   transform: translateY(-4px);
   box-shadow: 0 12px 32px rgba(0, 0, 0, 0.15);
-  border: 2px solid #CBB595;
+  border: 2px solid #cbb595;
 }
 
 .employee-card:hover > div:nth-child(1),
 .employee-card:hover > div:nth-child(2) {
-  color: #FFFFFF;
+  color: #ffffff;
   transition: all 0.3s ease-out;
   z-index: 1;
 }
@@ -179,7 +183,7 @@ body {
 .employee-card:hover > div:nth-child(2) h2,
 .employee-card:hover > div:nth-child(2) strong,
 .employee-card:hover > div:nth-child(2) span {
-  color: #FFFFFF !important;
+  color: #ffffff !important;
   transition: all 0.3s ease-out;
   z-index: 1;
 }
@@ -191,14 +195,14 @@ body {
 }
 
 .employee-card:hover .btn-stitch {
-  background: #CBB595 !important;
-  border: 1px solid #CBB595 !important;
+  background: #cbb595 !important;
+  border: 1px solid #cbb595 !important;
   color: #181818 !important;
   z-index: 1;
 }
 
 .gradient-text {
-  background: linear-gradient(135deg, #D4C5A9 0%, #A4957A 100%);
+  background: linear-gradient(135deg, #d4c5a9 0%, #a4957a 100%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
@@ -216,20 +220,27 @@ body {
 .btn-stitch {
   position: relative;
   padding: 15px 45px;
-  background: #CBB595;
+  background: #cbb595;
   font-size: 17px;
   font-weight: 500;
   color: #181818;
   cursor: pointer;
-  border: 1px solid #CBB595;
+  border: 1px solid #cbb595;
   border-radius: 8px;
   filter: drop-shadow(2px 2px 3px rgba(0, 0, 0, 0.2));
   width: 100%;
 }
 
 .btn-stitch:hover {
-  border: 1px solid #B8A582;
-  background: linear-gradient(85deg, #CBB595, #C4B59A, #B8A582, #C4B59A, #CBB595);
+  border: 1px solid #b8a582;
+  background: linear-gradient(
+    85deg,
+    #cbb595,
+    #c4b59a,
+    #b8a582,
+    #c4b59a,
+    #cbb595
+  );
   background-size: 200% 200%;
   animation: wind 2s ease-in-out infinite;
 }
@@ -335,7 +346,7 @@ body {
     grid-template-columns: 1fr;
     text-align: center;
   }
-  
+
   .hero-title {
     font-size: 2.5rem;
   }
