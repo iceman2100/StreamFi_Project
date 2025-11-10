@@ -3,15 +3,15 @@ pragma solidity ^0.8.0;
 
 contract StreamFi {
     struct Stream {
-        uint256 rate;        // tokens per second
-        uint256 lastClaim;   // timestamp of last claim
-        bool active;         // streaming status
+        uint256 rate;
+        uint256 lastClaim;
+        bool active;
     }
 
     mapping(address => Stream) public streams;
-    mapping(address => uint256) public balances;
+    mapping(address => uint256) public claimedBalance; // ✅ Renamed for clarity
 
-    uint256 public constant MIN_CLAIM_INTERVAL = 5; // minimum 5 seconds between claims
+    uint256 public constant MIN_CLAIM_INTERVAL = 5;
 
     event StreamStarted(address indexed user, uint256 rate);
     event StreamStopped(address indexed user);
@@ -41,13 +41,41 @@ contract StreamFi {
         uint256 timePassed = block.timestamp - s.lastClaim;
         uint256 amount = timePassed * s.rate;
 
-        balances[msg.sender] += amount;
-        s.lastClaim = block.timestamp;
+        claimedBalance[msg.sender] += amount; // ✅ Add to claimed balance
+        s.lastClaim = block.timestamp; // ✅ Reset timer
 
         emit StreamClaimed(msg.sender, amount);
     }
 
+    // ✅ FIXED: Returns ONLY pending (unclaimed) tokens
     function getBalance(address _user) external view returns (uint256) {
-        return balances[_user];
+        Stream storage s = streams[_user];
+        
+        // Only return pending tokens (not yet claimed)
+        if (s.active && s.rate > 0) {
+            uint256 timePassed = block.timestamp - s.lastClaim;
+            uint256 pendingTokens = timePassed * s.rate;
+            return pendingTokens; // ✅ Only show what can be claimed NOW
+        }
+        
+        return 0; // ✅ No pending tokens
+    }
+
+    // ✅ NEW: Get total claimed tokens
+    function getClaimedBalance(address _user) external view returns (uint256) {
+        return claimedBalance[_user];
+    }
+
+    // ✅ NEW: Get total (claimed + pending)
+    function getTotalBalance(address _user) external view returns (uint256) {
+        Stream storage s = streams[_user];
+        uint256 pending = 0;
+        
+        if (s.active && s.rate > 0) {
+            uint256 timePassed = block.timestamp - s.lastClaim;
+            pending = timePassed * s.rate;
+        }
+        
+        return claimedBalance[_user] + pending;
     }
 }
